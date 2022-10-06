@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { ReactComponent as SendIcon } from "../src/paper-plane-regular.svg";
+import { ReactComponent as SendIcon } from "../../../src/paper-plane-regular.svg";
 import ScrollToBottom from "react-scroll-to-bottom";
+import ChatRoomCSS from "./chat.module.css";
 function Chat({ socket, room, userName }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
@@ -38,28 +39,28 @@ function Chat({ socket, room, userName }) {
   }, [socket]);
 
   return (
-    <div className="chat-window">
-      <div className="chat-header">
+    <div className={ChatRoomCSS.chatWindow}>
+      <div className={ChatRoomCSS.chatHeader}>
         <p>Live Chat</p>
       </div>
-      <div className="chat-body">
-        <ScrollToBottom className="message-container">
+      <div className={ChatRoomCSS.chatBody}>
+        <ScrollToBottom className={ChatRoomCSS.messageContainer}>
           {messageList.map((a, index) => {
             return (
               <div
                 key={index}
-                className="message"
-                id={userName === a.author ? "you" : "other"}
+                className={ChatRoomCSS.message}
+                id={ChatRoomCSS[userName === a.author ? "you" : "other"]}
               >
                 <div>
-                  <div className="message-content">
+                  <div className={ChatRoomCSS.messageContent}>
                     <p>{a.message}</p>
                   </div>
-                  <div className="message-meta">
-                    <span id="time">{a.time} </span>
+                  <div className={ChatRoomCSS.messageMeta}>
+                    <span id={ChatRoomCSS.time}>{a.time} </span>
 
                     {userName === a.author ? null : (
-                      <span id="author">{a.author}</span>
+                      <span id={ChatRoomCSS.author}>{a.author}</span>
                     )}
                   </div>
                 </div>
@@ -68,7 +69,7 @@ function Chat({ socket, room, userName }) {
           })}
         </ScrollToBottom>
       </div>
-      <div className="chat-footer">
+      <div className={ChatRoomCSS.chatFooter}>
         <input
           type="text"
           placeholder="Hey!"
@@ -77,7 +78,7 @@ function Chat({ socket, room, userName }) {
           onKeyPress={enterPress}
         />
         <button>
-          <SendIcon className="send-icon" onClick={sendMessage} />
+          <SendIcon className={ChatRoomCSS.sendIcon} onClick={sendMessage} />
         </button>
       </div>
     </div>

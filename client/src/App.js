@@ -1,8 +1,8 @@
 import io from "socket.io-client";
 import { useState } from "react";
-import Chat from "./chat.js";
-import Photo from "./photo.js";
+import Chat from "./components/chat/chat.js";
 import "./app.css";
+import Avatar from "./components/avatar/avatar.js";
 //connect to the backend
 const socket = io.connect("http://localhost:3001");
 function App() {
@@ -29,7 +29,8 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
+      <Avatar />
       {!showChat ? (
         <div className="join-chat-container">
           <h1>Join A Chat</h1>

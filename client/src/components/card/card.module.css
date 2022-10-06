@@ -1,0 +1,20 @@
+.cardContainer {
+    background-color: #edecea;
+    border-radius: 100%;
+    max-width: 200px;
+   /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 3px 3px 10px #FF577F;;
+    padding: 30px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .cardContainer:hover {
+    transform: scale(1.03);
+  }
+  img{
+    max-width: 160px;
+  }

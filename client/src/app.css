@@ -1,46 +1,57 @@
-.App {
+body {
+  margin:20px auto;
+  padding: 0px;
     width: 100vw;
     height: 100vh;
-    background: rgb(247, 242, 242);
+    background: linear-gradient(
+      to left,
+      rgb(255, 73, 116) 0%,
+      rgb(207, 229, 11) 100%
+    );
+    text-align: center;
     color: #FF577F;
-    font-family: "Open Sans", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
     display: grid;
     place-items: center;
   }
-  body {
-    margin: 0%;
-    padding: 0%;
-  }
+
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
   
   .join-chat-container {
+    border-radius: 20px;
+    margin: 40px auto;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.71);
   }
   
-  .join-chat-container h3 {
+  .join-chat-container h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
   .join-chat-container input {
-    width: 210px;
-    height: 40px;
-    margin: 7px;
+    width: 50%;
+    height: 60px;
+    margin: 8px;
     border: 2px solid #f48f43;
     border-radius: 5px;
-    padding: 5px;
-    font-size: 16px;
+    padding: 12px;
+    font-size: 1rem;
   }
   
   .join-chat-container button {
     width: 225px;
-    height: 50px;
-    margin: 7px;
+    height: 70px;
+    margin: 40px;
     border: none;
     border-radius: 5px;
     padding: 5px;
-    font-size: 16px;
+    font-size: 2rem;
     background:#FF884B;
     color: #fff;
     cursor: pointer;
@@ -50,154 +61,3 @@
     background: #FF577F;
   }
   
-  .chat-window {
-    width: 300px;
-    height: auto;
-  }
-  
-  .chat-window p {
-    margin: 0;
-  }
-  .chat-window .chat-header {
-    height: 45px;
-    border-radius: 6px;
-    background: #FF577F;
-    position: relative;
-    cursor: pointer;
-  }
-  .chat-window .chat-header p {
-    display: block;
-    padding: 0 1em 0 2em;
-    color: #fff;
-    font-weight: 700;
-    line-height: 45px;
-    box-shadow:  2px 2px 7px #decece;;
-  }
-  
-  .chat-window .chat-body {
-    height: calc(450px - (45px + 70px));
-    border: none;
-    background: rgb(245, 233, 233);
-    border-radius: 2px;
-    box-shadow:  2px 2px 7px #decece;
-    position: relative;
-  }
-  .message-container {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
- 
-  }
-  #you .message-container {
-align-items: flex-end;
-  }
-  .chat-window .chat-body .message-container::-webkit-scrollbar {
-    display: none;
-  }
-  .chat-window .chat-body .message {
-    height: auto;
-    padding: 10px;
-    display: flex;
-  }
-  
-  .chat-window .chat-body .message .message-content {
-    width: auto;
-    height: auto;
-    min-height: 20px;
-    max-width: 180px;
-    background-color: #FFF9B0;
-    border-radius: 5px;
-    color: rgb(123, 88, 88);
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding:5px 10px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    box-shadow: 1px 1px 4px rgb(168, 156, 156);
-  }
-  
-  #other {
-    justify-content: flex-start;
-      align-items: flex-end;
-    }
-  
-  
-  #other .message-content {
-    justify-content: flex-start;
-  }
-  
-  #other .message-meta {
-    justify-content:flex-start;
-    margin-left: 5px;
-  }
-  
-  #you {
-    justify-content: flex-end;
-  }
-  
-  #you .message-content {
-    justify-content: flex-end;
-    background-color: #FFD384;
-  }
-  
-  #you .message-meta {
-    justify-content: flex-end;
-    margin-right: 5px;
-  }
-  
-  .message-meta #author {
-    margin-left: 5px;
-    font-weight: bold;
-  }
-  
-  .chat-window .chat-body .message .message-meta {
-    display: flex;
-    font-size: 12px;
-  }
-  
-  .chat-window .chat-footer {
-    height: 40px;
-    border: none ;
-
-    display: flex;
-    box-shadow:  2px 2px 7px #decece;
-  }
-  
-  .chat-window .chat-footer input {
-    height: 100%;
-    flex: 85%;
-    border: 0;
-    padding: 0 0.7em;
-    font-size: 1em;
-    outline: none;
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  .chat-window .chat-footer button {
-    border: 0;
-    display: grid;
-    place-items: center;
-    flex: 15%;
-    height: 100%;
-    background-color:#FF884B;
-    outline: none;
-    font-size: 25px;
-  }
-  
-  .chat-window .chat-footer button:hover {
-    background-color:#FF577F;
-    cursor: pointer;
-    border-radius: 2px;
-  }
-  .hide {
-    opacity: 0 !important;
-  }
-
-.send-icon{
-    height:20px;
-    width:20px;
-    fill: rgb(255, 255, 255);
-} 

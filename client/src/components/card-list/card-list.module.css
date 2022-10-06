@@ -1,0 +1,15 @@
+.cardListContainer{
+    display: flex;
+    justify-content: center;
+    
+
+}
+.cardList {
+    
+align-items: center; 
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    grid-gap: 40px;
+  }
+
+  
