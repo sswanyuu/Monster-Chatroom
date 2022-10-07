@@ -20,16 +20,18 @@ function Message({}) {
                 <img className={MessageCSS.avatar} src={message.avatarUrl} />
               </div>
             )}
-            <div className={MessageCSS.text}>
+            <div className={MessageCSS.textBox}>
               {userName === message.author ? null : (
                 <span id={MessageCSS.author}>{message.author}</span>
               )}
-              <div className={MessageCSS.messageContent}>
-                <p>{message.message}</p>
+              <div className={MessageCSS.aboutTime}>
+                <div className={MessageCSS.messageContent}>
+                  <p>{message.message}</p>
+                </div>
+                <div className={MessageCSS.messageMeta}>
+                  <span id={MessageCSS.time}>{message.time} </span>
+                </div>
               </div>
-            </div>
-            <div className={MessageCSS.messageMeta}>
-              <span id={MessageCSS.time}>{message.time} </span>
             </div>
           </div>
         );

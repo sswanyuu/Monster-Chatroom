@@ -4,9 +4,6 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
-#you .messageContainer {
-  align-items: flex-end;
-}
 .messageContainer::-webkit-scrollbar {
   display: none;
 }
@@ -17,6 +14,7 @@
   flex-direction: row;
   align-items: baseline;
 }
+
 .avatarCircle {
   background-color: rgb(249, 249, 243);
   box-shadow: 1px 1px 4px rgb(168, 156, 156);
@@ -26,7 +24,7 @@
 .avatar {
   width: 40px;
 }
-.text {
+.textBox {
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -42,6 +40,7 @@
   color: rgb(123, 88, 88);
   display: flex;
   align-items: center;
+  text-align: left;
   padding: 5px 10px;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -57,11 +56,6 @@
   justify-content: flex-start;
 }
 
-#other .messageMeta {
-  justify-content: flex-start;
-  margin-left: 5px;
-}
-
 #you {
   justify-content: flex-end;
 }
@@ -71,18 +65,29 @@
   background-color: #ffd384;
 }
 
-#you .messageMeta {
-  justify-content: flex-end;
-  margin-right: 5px;
-}
-
 #author {
   margin-bottom: 2px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .messageMeta {
   display: flex;
+}
+#you .messageMeta {
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+#other .messageMeta {
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+.aboutTime {
+  display: flex;
+}
+#you .aboutTime {
+  display: flex;
+  flex-direction: row-reverse;
 }
 #time {
   align-self: flex-end;

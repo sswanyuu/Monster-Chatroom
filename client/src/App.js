@@ -1,62 +1,42 @@
+// @ts-ignore
 import io from "socket.io-client";
-import { useState } from "react";
-import Chat from "./components/chat/chat.js";
-import "./app.css";
-import Avatar from "./components/avatar/avatar.js";
-import Join from "./components/join/join.component.jsx";
 import { UserProvider } from "./context/user.context.jsx";
 import { MessageProvider } from "./context/message.context.jsx";
+import { MonsterProvider } from "./context/monster.context.jsx";
+import { useContext, useEffect } from "react";
+import { UserContext } from "./context/user.context.jsx";
+import { MonsterContext } from "./context/monster.context.jsx";
+import Chat from "./components/chat/chat.js";
+import "./app.css";
+import CardList from "./components/card-list/card-list.component.jsx";
+import Join from "./components/join/join.component.jsx";
+
 //connect to the backend
 const socket = io.connect("http://localhost:3001");
 function App() {
-  // const [userName, setUsername] = useState("");
-  // const [room, setRoom] = useState("");
-  // const enterPress = (event) => {
-  //   event.key === "Enter" && joinRoom();
-  // };
-  // const joinRoom = () => {
-  //   if (userName !== "" && room !== "") {
-  //     //emit an event (join_room), and pass the data (room)
-  //     socket.emit("join_room", room);
-  //     setShowChat(true);
-  //   } else {
-  //     alert("fill in the blank!");
-  //   }
-  // };
-  // const changeName = (event) => {
-  //   setUsername(event.target.value);
-  // };
-  // const changeRoom = (event) => {
-  //   setRoom(event.target.value);
-  // };
+  // @ts-ignore
+  const { showChat } = useContext(UserContext);
+  // @ts-ignore
+
   return (
-    <UserProvider>
-      <MessageProvider>
-        <div>
-          <Avatar />
-          <Join socket={socket} /> <Chat socket={socket} />
-        </div>
-      </MessageProvider>
-    </UserProvider>
+    <MonsterProvider>
+      <UserProvider>
+        <MessageProvider>
+          <CardList />
+          <Join socket={socket} />
+          <Chat socket={socket} />
+          {/* {showChat ? (
+            <Chat socket={socket} />
+          ) : (
+            <div>
+              <Avatar />
+              <Join socket={socket} />
+            </div>
+          )} */}
+        </MessageProvider>
+      </UserProvider>
+    </MonsterProvider>
   );
 }
 
 export default App;
-// (
-//   <div className="join-chat-container">
-//     <h1>Join A Chat</h1>
-//     <input
-//       type="text"
-//       placeholder="Anna..."
-//       onChange={changeName}
-//       onKeyPress={enterPress}
-//     ></input>
-//     <input
-//       type="text"
-//       placeholder="Room ID..."
-//       onChange={changeRoom}
-//       onKeyPress={enterPress}
-//     ></input>
-//     <button onClick={joinRoom}>Join now</button>
-//   </div>
-// )
