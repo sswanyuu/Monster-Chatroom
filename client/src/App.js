@@ -1,9 +1,7 @@
 // @ts-ignore
 import io from "socket.io-client";
-import { UserProvider } from "./context/user.context.jsx";
-import { MessageProvider } from "./context/message.context.jsx";
-import { MonsterProvider } from "./context/monster.context.jsx";
-import { useContext, useEffect } from "react";
+
+import { Fragment, useContext, useEffect } from "react";
 import { UserContext } from "./context/user.context.jsx";
 import { MonsterContext } from "./context/monster.context.jsx";
 import Chat from "./components/chat/chat.js";
@@ -18,24 +16,13 @@ function App() {
   const { showChat } = useContext(UserContext);
   // @ts-ignore
 
-  return (
-    <MonsterProvider>
-      <UserProvider>
-        <MessageProvider>
-          <CardList />
-          <Join socket={socket} />
-          <Chat socket={socket} />
-          {/* {showChat ? (
-            <Chat socket={socket} />
-          ) : (
-            <div>
-              <Avatar />
-              <Join socket={socket} />
-            </div>
-          )} */}
-        </MessageProvider>
-      </UserProvider>
-    </MonsterProvider>
+  return showChat ? (
+    <Chat socket={socket} />
+  ) : (
+    <Fragment>
+      <CardList />
+      <Join socket={socket} />
+    </Fragment>
   );
 }
 

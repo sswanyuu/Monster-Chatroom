@@ -50,13 +50,13 @@ function Join({ socket }) {
         onChange={changeName}
         onKeyPress={enterPress}
         value={userName}
-      ></input>
+      />
       <input
         type="text"
         placeholder="Room ID..."
         onChange={changeRoom}
         onKeyPress={enterPress}
-      ></input>
+      />
       <button onClick={joinRoom}>Join now</button>
       <button onClick={addRandomName}>Create random name </button>
     </div>
