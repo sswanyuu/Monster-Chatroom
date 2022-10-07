@@ -8,7 +8,7 @@ import { MessageContext } from "../../context/message.context";
 
 function Chat({ socket }) {
   const { room, userName, avatarId } = useContext(UserContext);
-  const { currentMessage, setCurrentMessage, messageList, setMessageList } =
+  const { currentMessage, setCurrentMessage, setMessageList } =
     useContext(MessageContext);
   const changeMessage = (event) => {
     setCurrentMessage(event.target.value);
@@ -31,8 +31,6 @@ function Chat({ socket }) {
       socket.emit("send_message", messageData);
       setCurrentMessage("");
       setMessageList((prevList) => [...prevList, messageData]);
-      console.log(avatarId);
-      console.log(messageList);
     } else {
       alert("Write some messages!");
     }
@@ -45,7 +43,7 @@ function Chat({ socket }) {
       setMessageList((prevList) => [...prevList, data]);
     });
     setCurrentMessage("");
-  }, [socket]);
+  }, [socket, setMessageList, setCurrentMessage]);
 
   return (
     <div className={ChatRoomCSS.chatWindow}>

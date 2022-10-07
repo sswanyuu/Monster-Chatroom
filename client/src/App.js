@@ -1,9 +1,8 @@
 // @ts-ignore
 import io from "socket.io-client";
 
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext } from "react";
 import { UserContext } from "./context/user.context.jsx";
-import { MonsterContext } from "./context/monster.context.jsx";
 import Chat from "./components/chat/chat.js";
 import "./app.css";
 import CardList from "./components/card-list/card-list.component.jsx";

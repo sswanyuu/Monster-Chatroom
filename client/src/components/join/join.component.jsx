@@ -4,15 +4,8 @@ import { useContext } from "react";
 import JoinCSS from "./join.module.css";
 import { MonsterContext } from "../../context/monster.context";
 function Join({ socket }) {
-  const {
-    avatarId,
-    userName,
-    setUserName,
-    room,
-    setRoom,
-    showChat,
-    setShowChat,
-  } = useContext(UserContext);
+  const { avatarId, userName, setUserName, room, setRoom, setShowChat } =
+    useContext(UserContext);
   const { randomNameList } = useContext(MonsterContext);
   const enterPress = (event) => {
     event.key === "Enter" && joinRoom();
@@ -23,15 +16,13 @@ function Join({ socket }) {
       //emit an event (join_room), and pass the data (room)
       socket.emit("join_room", room);
       setShowChat(true);
-      console.log(showChat);
-    } else if (avatarId == "") {
+    } else if (avatarId === "") {
       alert("choose an avatar!");
     } else {
       alert("fill in the blank!");
     }
   };
   const changeName = (event) => {
-    console.log(event);
     setUserName(event.target.value);
   };
   const addRandomName = () => {

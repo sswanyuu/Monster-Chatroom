@@ -8,13 +8,12 @@ const CardList = () => {
   const { monsters, setMonsters, setRandomNameList } =
     useContext(MonsterContext);
   useEffect(() => {
-    console.log("Effect is triggered");
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) => {
         return setMonsters(users);
       });
-  }, []);
+  }, [setMonsters]);
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")
       .then((response) => response.json())
@@ -25,7 +24,7 @@ const CardList = () => {
         // @ts-ignore
         setRandomNameList(ricksData);
       });
-  }, []);
+  }, [setRandomNameList]);
   const chooseAvatar = (id) => {
     setAvatarId(id);
   };
