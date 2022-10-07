@@ -16,9 +16,6 @@
   transform: scale(1.03);
 }
 
-img {
-  max-width: 160px;
-}
 .selected {
   background-color: #133a4e;
 }

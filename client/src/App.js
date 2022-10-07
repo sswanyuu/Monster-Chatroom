@@ -5,6 +5,7 @@ import "./app.css";
 import Avatar from "./components/avatar/avatar.js";
 import Join from "./components/join/join.component.jsx";
 import { UserProvider } from "./context/user.context.jsx";
+import { MessageProvider } from "./context/message.context.jsx";
 //connect to the backend
 const socket = io.connect("http://localhost:3001");
 function App() {
@@ -30,10 +31,12 @@ function App() {
   // };
   return (
     <UserProvider>
-      <div>
-        <Avatar />
-        <Join socket={socket} /> <Chat socket={socket} />
-      </div>
+      <MessageProvider>
+        <div>
+          <Avatar />
+          <Join socket={socket} /> <Chat socket={socket} />
+        </div>
+      </MessageProvider>
     </UserProvider>
   );
 }

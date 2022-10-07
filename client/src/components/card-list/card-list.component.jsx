@@ -8,12 +8,13 @@ const CardList = ({ monsters }) => {
   const chooseAvatar = (id) => {
     setAvatarId(id);
   };
-  console.log({ monsters });
   return (
     <div className={CardListCSS.cardListContainer}>
       <div className={CardListCSS.cardList}>
         {monsters.map((monster) => {
-          return <Card monster={monster} onChange={chooseAvatar} />;
+          return (
+            <Card key={monster.id} monster={monster} onChange={chooseAvatar} />
+          );
         })}
       </div>
     </div>

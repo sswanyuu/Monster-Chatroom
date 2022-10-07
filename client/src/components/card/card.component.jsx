@@ -5,10 +5,6 @@ import { useContext } from "react";
 
 const Card = ({ monster, onChange }) => {
   const { avatarId } = useContext(UserContext);
-  console.log(
-    "🚀 ~ file: card.component.jsx ~ line 8 ~ Card ~ avatarId",
-    avatarId
-  );
   const { name, id } = monster;
   return (
     <div

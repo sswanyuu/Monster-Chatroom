@@ -1,16 +1,16 @@
 // @ts-nocheck
-import { useState } from "react";
 import { UserContext } from "../../context/user.context";
 import { useContext } from "react";
 
 function Join({ socket }) {
-  const { userName, setUserName, room, setRoom } = useContext(UserContext);
+  const { avatarId, userName, setUserName, room, setRoom } =
+    useContext(UserContext);
   const enterPress = (event) => {
     event.key === "Enter" && joinRoom();
   };
 
   const joinRoom = () => {
-    if (userName !== "" && room !== "") {
+    if (avatarId !== "" && userName !== "" && room !== "") {
       //emit an event (join_room), and pass the data (room)
       socket.emit("join_room", room);
     } else {

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+// @ts-nocheck
+import React, { useContext, useEffect } from "react";
 import { ReactComponent as SendIcon } from "../../../src/paper-plane-regular.svg";
-import ScrollToBottom from "react-scroll-to-bottom";
 import ChatRoomCSS from "./chat.module.css";
+import Message from "../message/message.component";
 import { UserContext } from "../../context/user.context";
-import { useContext } from "react";
+import { MessageContext } from "../../context/message.context";
 
 function Chat({ socket }) {
-  const { room, userName } = useContext(UserContext);
-  const [currentMessage, setCurrentMessage] = useState("");
-  const [messageList, setMessageList] = useState([]);
+  const { room, userName, avatarId } = useContext(UserContext);
+  const { currentMessage, setCurrentMessage, messageList, setMessageList } =
+    useContext(MessageContext);
   const changeMessage = (event) => {
     setCurrentMessage(event.target.value);
   };
@@ -18,6 +19,8 @@ function Chat({ socket }) {
       const messageData = {
         room: room,
         author: userName,
+        avatarUrl:
+          "https://robohash.org/" + avatarId + "?set=set1&size=180x180",
         message: currentMessage,
         id: socket.id,
         time:
@@ -28,6 +31,8 @@ function Chat({ socket }) {
       socket.emit("send_message", messageData);
       setCurrentMessage("");
       setMessageList((prevList) => [...prevList, messageData]);
+      console.log(avatarId);
+      console.log(messageList);
     } else {
       alert("Write some messages!");
     }
@@ -45,33 +50,10 @@ function Chat({ socket }) {
   return (
     <div className={ChatRoomCSS.chatWindow}>
       <div className={ChatRoomCSS.chatHeader}>
-        <p>Live Chat</p>
+        <p>Live Chat : {room}</p>
       </div>
       <div className={ChatRoomCSS.chatBody}>
-        <ScrollToBottom className={ChatRoomCSS.messageContainer}>
-          {messageList.map((a, index) => {
-            return (
-              <div
-                key={index}
-                className={ChatRoomCSS.message}
-                id={ChatRoomCSS[userName === a.author ? "you" : "other"]}
-              >
-                <div>
-                  <div className={ChatRoomCSS.messageContent}>
-                    <p>{a.message}</p>
-                  </div>
-                  <div className={ChatRoomCSS.messageMeta}>
-                    <span id={ChatRoomCSS.time}>{a.time} </span>
-
-                    {userName === a.author ? null : (
-                      <span id={ChatRoomCSS.author}>{a.author}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </ScrollToBottom>
+        <Message />
       </div>
       <div className={ChatRoomCSS.chatFooter}>
         <input
