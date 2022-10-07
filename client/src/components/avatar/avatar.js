@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CardList from "../card-list/card-list.component";
 import AvatarCSS from "./avatar.module.css";
+
 function Avatar() {
   const [monsters, setMonsters] = useState([]);
-
   useEffect(() => {
     console.log("Effect is triggered");
     fetch("https://jsonplaceholder.typicode.com/users")

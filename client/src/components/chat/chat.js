@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as SendIcon } from "../../../src/paper-plane-regular.svg";
 import ScrollToBottom from "react-scroll-to-bottom";
 import ChatRoomCSS from "./chat.module.css";
-function Chat({ socket, room, userName }) {
+import { UserContext } from "../../context/user.context";
+import { useContext } from "react";
+
+function Chat({ socket }) {
+  const { room, userName } = useContext(UserContext);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const changeMessage = (event) => {
