@@ -5,7 +5,7 @@
 <br/>
 2️⃣ Create random name or write down your name
 <br/>
-3️⃣ fill in a room ID
+3️⃣ Fill in a room ID
 <br/>
 4️⃣ Start online chatting!
 <br/>
