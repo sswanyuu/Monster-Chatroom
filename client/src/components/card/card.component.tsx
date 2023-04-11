@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardCSS from "./card.module.css";
 import { UserContext } from "../../context/user.context";
-import { useContext } from "react";
 
-const Card = ({ monster, onChange }) => {
+interface CardProps {
+  monster: {
+    id: number;
+    name: string;
+  };
+  onChange: (id: number) => void;
+}
+
+const Card: React.FC<CardProps> = ({ monster, onChange }) => {
   const { avatarId } = useContext(UserContext);
   const { name, id } = monster;
+
   return (
     <div
       className={`${CardCSS.cardContainer} ${
-        avatarId === id ? CardCSS.selected : undefined
+        avatarId === id ? CardCSS.selected : ""
       }`}
       key={id}
     >
