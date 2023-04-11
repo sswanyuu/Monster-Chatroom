@@ -1,7 +1,14 @@
 // @ts-nocheck
 import { createContext, useState } from "react";
 
-export const MonsterContext = createContext({
+interface MonsterContextType {
+  monsters: any[];
+  setMonsters: React.Dispatch<React.SetStateAction<any[]>>;
+  randomNameList: string[];
+  setRandomNameList: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+export const MonsterContext = createContext<MonsterContextType>({
   monsters: [],
   setMonsters: () => {},
   randomNameList: [],
