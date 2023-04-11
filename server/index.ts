@@ -1,8 +1,8 @@
-const express = require("express");
-const app = express();
-const http = require("http");
-const cors = require("cors");
-const { Server } = require("socket.io");
+import express, { Application } from "express";
+import http from "http";
+import cors from "cors";
+import { Server, Socket } from "socket.io";
+const app: Application = express();
 app.use(cors());
 
 const server = http.createServer(app);
@@ -13,7 +13,7 @@ const io = new Server(server, {
   },
 });
 
-io.on("connection", (socket) => {
+io.on("connection", (socket: Socket) => {
   console.log(`User connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
