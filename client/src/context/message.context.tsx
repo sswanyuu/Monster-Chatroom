@@ -1,7 +1,12 @@
 // @ts-nocheck
 import { createContext, useState } from "react";
-
-export const MessageContext = createContext({
+interface MessageContextType {
+  currentMessage: string;
+  setCurrentMessage: React.Dispatch<React.SetStateAction<string>>;
+  messageList: any[];
+  setMessageList: React.Dispatch<React.SetStateAction<any[]>>;
+}
+export const MessageContext = createContext<MessageContextType>({
   currentMessage: null,
   setCurrentMessage: () => {},
   messageList: [],

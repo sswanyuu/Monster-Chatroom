@@ -1,7 +1,16 @@
 // @ts-nocheck
 import { createContext, useState } from "react";
-
-export const UserContext = createContext({
+interface UserContextType {
+  userName: string;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
+  room: number;
+  setRoom: React.Dispatch<React.SetStateAction<number>>;
+  avatarId: number;
+  setAvatarId: React.Dispatch<React.SetStateAction<number>>;
+  showChat: boolean;
+  setShowChat: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export const UserContext = createContext<UserContextType>({
   userName: null,
   setUserName: (_userName: string) => {},
   room: null,
