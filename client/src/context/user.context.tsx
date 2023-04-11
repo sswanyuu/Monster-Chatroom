@@ -3,11 +3,11 @@ import { createContext, useState } from "react";
 
 export const UserContext = createContext({
   userName: null,
-  setUserName: (_userName) => {},
+  setUserName: (_userName: string) => {},
   room: null,
-  setRoom: (_room) => {},
+  setRoom: (_room: number) => {},
   avatarId: null,
-  setAvatarId: (_id) => {},
+  setAvatarId: (_id: number) => {},
   showChat: null,
   setShowChat: () => {},
 });
