@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { UserProvider } from "./context/user.context.jsx";
-import { MessageProvider } from "./context/message.context.jsx";
-import { MonsterProvider } from "./context/monster.context.jsx";
+import { UserProvider } from "./context/user.context.tsx";
+import { MessageProvider } from "./context/message.context.tsx";
+import { MonsterProvider } from "./context/monster.context.tsx";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <MonsterProvider>

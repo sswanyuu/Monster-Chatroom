@@ -2,10 +2,10 @@
 import io from "socket.io-client";
 
 import { Fragment, useContext } from "react";
-import { UserContext } from "./context/user.context.jsx";
+import { UserContext } from "./context/user.context.tsx";
 import Chat from "./components/chat/chat.js";
 import "./app.css";
-import CardList from "./components/card-list/card-list.component.jsx";
+import CardList from "./components/card-list/card-list.component.tsx";
 import Join from "./components/join/join.component.jsx";
 
 //connect to the backend
