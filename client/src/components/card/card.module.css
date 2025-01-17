@@ -1,21 +1,30 @@
 .cardContainer {
-  background-color: #edecea;
+  background-color: #dab49d;
   border-radius: 100%;
-  max-width: 200px;
-  /* offset-x | offset-y | blur-radius | color */
-  box-shadow: 3px 3px 10px #ff577f;
-  padding: 30px;
+  padding: 12px;
   cursor: pointer;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
+  @media screen and (min-width: 768px) {
+    max-width: 200px;
+    padding: 30px;
+  }
 }
 
 .cardContainer:hover {
   transform: scale(1.03);
 }
-
+.avatar {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+}
 .selected {
-  background-color: #133a4e;
+  background-color: #895737;
 }

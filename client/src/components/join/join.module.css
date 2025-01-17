@@ -1,41 +1,89 @@
 .joinChatContainer {
+  box-sizing: border-box;
+  padding: 20px;
+  gap: 10px;
   border-radius: 20px;
-  margin: 40px auto;
-  width: 60%;
+  margin: 20px auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.71);
+  background-color: #f3e9dc;
 }
 
-.joinChatContainer h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.title {
+  font-size: 24px;
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  gap: 10px;
+  width: 80%;
+}
+.formRow {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+.formRow button {
+  align-self: stretch;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  border: 1px solid #895737;
+  border-radius: 5px;
+  font-size: 12px;
+  background: #f3eee8;
+  color: #895737;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+.formRow button:hover {
+  background: #f6f0e8;
 }
 .joinChatContainer input {
-  width: 50%;
-  height: 60px;
-  margin: 8px;
-  border: 2px solid #f48f43;
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid #895737;
   border-radius: 5px;
   padding: 12px;
-  font-size: 1rem;
+  font-size: 12px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 }
-
-.joinChatContainer button {
-  width: 225px;
-  height: 70px;
-  margin: 10px;
+.cta {
+  margin-top: 20px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  white-space: nowrap;
   border: none;
   border-radius: 5px;
-  padding: 16px;
-  font-size: 1.2rem;
-  background: #ff884b;
+  font-size: 12px;
+  background: #895737;
   color: #fff;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 
-.joinChatContainer button:hover {
-  background: #ff577f;
+.cta:hover {
+  background: #5e3023;
 }

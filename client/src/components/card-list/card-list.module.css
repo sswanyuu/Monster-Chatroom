@@ -1,19 +1,23 @@
 .cardListContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+/* refactor -> rwd */
 .cardList {
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 40px;
+  grid-gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media (min-width: 1200px) {
+    grid-gap: 20px;
+  }
 }
 
 .title {
   font-size: 2.5rem;
   margin: 50px 0px;
-  color: rgb(252, 252, 250);
+  color: rgb(78, 78, 51);
   margin-top: 70px;
-  font-size: 3rem;
   letter-spacing: 7px;
 }

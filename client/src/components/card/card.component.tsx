@@ -22,6 +22,7 @@ const Card: React.FC<CardProps> = ({ monster, onChange }) => {
       key={id}
     >
       <img
+        className={CardCSS.avatar}
         alt={name}
         src={`https://robohash.org/${id}?set=set1&size=180x180`}
         onClick={() => onChange(id)}

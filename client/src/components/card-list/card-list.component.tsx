@@ -1,3 +1,4 @@
+//import format
 import React, { useContext, useEffect } from "react";
 import CardListCSS from "./card-list.module.css";
 import Card from "../card/card.component";
@@ -25,12 +26,12 @@ const CardList = () => {
         setRandomNameList(ricksData);
       });
   }, [setRandomNameList]);
-  const chooseAvatar = (id) => {
+  const chooseAvatar = (id: number) => {
     setAvatarId(id);
   };
   return (
     <div>
-      <h1 className={CardListCSS.title}>Choose an avatar and join a room</h1>
+      <h1 className={CardListCSS.title}>Monster Chat</h1>
       <div className={CardListCSS.cardListContainer}>
         <div className={CardListCSS.cardList}>
           {monsters.map((monster) => {

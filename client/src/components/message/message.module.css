@@ -16,12 +16,17 @@
 }
 
 .avatarCircle {
+  height: 44px;
+  width: 44px;
+  padding: 2px;
   background-color: rgb(249, 249, 243);
   box-shadow: 1px 1px 4px rgb(168, 156, 156);
   border-radius: 100%;
   margin-right: 2px;
 }
 .avatar {
+  border-radius: 50%;
+  height: 40px;
   width: 40px;
 }
 .textBox {

@@ -3,7 +3,7 @@ import io from "socket.io-client";
 
 import { Fragment, useContext } from "react";
 import { UserContext } from "./context/user.context.tsx";
-import Chat from "./components/chat/chat.js";
+import Chat from "./components/chat/chat.tsx";
 import "./app.css";
 import CardList from "./components/card-list/card-list.component.tsx";
 import Join from "./components/join/join.component.jsx";

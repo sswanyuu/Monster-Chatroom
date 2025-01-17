@@ -34,22 +34,32 @@ function Join({ socket }) {
   };
   return (
     <div className={JoinCSS.joinChatContainer}>
-      <h1>Join A Chat</h1>
-      <input
-        type="text"
-        placeholder="Anna..."
-        onChange={changeName}
-        onKeyPress={enterPress}
-        value={userName}
-      />
-      <input
-        type="text"
-        placeholder="Room ID..."
-        onChange={changeRoom}
-        onKeyPress={enterPress}
-      />
-      <button onClick={joinRoom}>Join now</button>
-      <button onClick={addRandomName}>Create random name </button>
+      <h1 className="JoinCSS.title">Join A Chat</h1>
+      <div className={JoinCSS.formGroup}>
+        <label>User Name*</label>
+        <div className={JoinCSS.formRow}>
+          <input
+            type="text"
+            placeholder="Anna..."
+            onChange={changeName}
+            onKeyPress={enterPress}
+            value={userName}
+          />
+          <button onClick={addRandomName}>Create random name </button>
+        </div>
+      </div>
+      <div className={JoinCSS.formGroup}>
+        <label>Room Id*</label>
+        <input
+          type="text"
+          placeholder="301"
+          onChange={changeRoom}
+          onKeyPress={enterPress}
+        />
+      </div>
+      <button className={JoinCSS.cta} onClick={joinRoom}>
+        Join now
+      </button>
     </div>
   );
 }
