@@ -40,6 +40,7 @@ function Chat({ socket }) {
   };
   useEffect(() => {
     socket.on("receive_message", (data) => {
+      console.log("🚀 ~ socket.on ~ data:", data)
       setMessageList((prevList) => [...prevList, data]);
     });
     setCurrentMessage("");
