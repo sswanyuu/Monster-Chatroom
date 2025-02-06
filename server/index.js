@@ -29,8 +29,8 @@ io.on("connection", async (socket) => {
     const label = classification[0]?.label || "UNKNOWN";
     const score = classification[0]?.score || 0;
     const processedMessage = {
-      classification: { label, score },
       ...data,
+      classification: { label, score },
     };
     console.log("🚀 ~ socket.on ~ processedMessage:", processedMessage);
 
@@ -48,15 +48,13 @@ class MyClassificationPipeline {
 
   static async getInstance(progress_callback = null) {
     if (this.instance === null) {
-      // NOTE: Uncomment this to change the cache directory
-      // env.cacheDir = './.cache';
-
       this.instance = pipeline(this.task, this.model, { progress_callback });
     }
 
     return this.instance;
   }
 }
+
 MyClassificationPipeline.getInstance();
 
 server.listen(3001, () => {

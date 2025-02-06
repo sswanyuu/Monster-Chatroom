@@ -3,7 +3,7 @@ import MessageCSS from "./message.module.css";
 import { UserContext } from "../../context/user.context";
 import { MessageContext } from "../../context/message.context";
 import ScrollToBottom from "react-scroll-to-bottom";
-function Message({}) {
+function Message() {
   const { userName } = useContext(UserContext);
   const { messageList } = useContext(MessageContext);
   return (
