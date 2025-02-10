@@ -58,7 +58,7 @@ function Join({ socket }) {
         />
       </div>
       <button className={JoinCSS.cta} onClick={joinRoom}>
-        Join now
+        Join
       </button>
     </div>
   );

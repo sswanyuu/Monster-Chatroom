@@ -6,17 +6,27 @@ import Message from "../message/message.component";
 import { UserContext } from "../../context/user.context";
 import { MessageContext } from "../../context/message.context";
 
+type messageData = {
+  room: string;
+  author: string;
+  avatarUrl: string;
+  message: string;
+  id: string;
+  time: string;
+  classification?: {};
+};
 function Chat({ socket }) {
   const { room, userName, avatarId } = useContext(UserContext);
-  const { currentMessage, setCurrentMessage, setMessageList } =
+  const { currentMessage,messageList, setCurrentMessage, setMessageList } =
     useContext(MessageContext);
+  // const userNumber = new 
   const changeMessage = (event) => {
     setCurrentMessage(event.target.value);
   };
 
   const sendMessage = () => {
     if (currentMessage !== "") {
-      const messageData = {
+      const messageData : messageData = {
         room: room,
         author: userName,
         avatarUrl:
@@ -27,6 +37,7 @@ function Chat({ socket }) {
           new Date(Date.now()).getHours() +
           ":" +
           new Date(Date.now()).getMinutes(),
+        classification: {},
       };
       socket.emit("send_message", messageData);
       setCurrentMessage("");
@@ -48,7 +59,7 @@ function Chat({ socket }) {
   return (
     <div className={ChatRoomCSS.chatWindow}>
       <div className={ChatRoomCSS.chatHeader}>
-        <p>Live Chat : {room}</p>
+        <p>Live Chat : {room} ()</p>
       </div>
       <div className={ChatRoomCSS.chatBody}>
         <Message />
