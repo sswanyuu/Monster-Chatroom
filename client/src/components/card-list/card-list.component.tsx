@@ -31,6 +31,8 @@ const CardList = () => {
   };
   return (
     <div>
+      <div className={CardListCSS.background} style={{ backgroundImage: `url("/background.jpg")`}}>
+      </div>
       <h1 className={CardListCSS.title}>Monster Chat</h1>
       <div className={CardListCSS.cardListContainer}>
         <div className={CardListCSS.cardList}>
