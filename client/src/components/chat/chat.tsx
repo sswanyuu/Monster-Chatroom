@@ -59,7 +59,7 @@ function Chat({ socket }) {
   return (
     <div className={ChatRoomCSS.chatWindow}>
       <div className={ChatRoomCSS.chatHeader}>
-        <p>Live Chat : {room} ()</p>
+        <p>Live Chat : {room}</p>
       </div>
       <div className={ChatRoomCSS.chatBody}>
         <Message />
